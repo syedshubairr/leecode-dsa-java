@@ -14,17 +14,19 @@ public class LeetCode852 {
     public static int peekMountain(int[] arr) {
         int start = 0;
         int end = arr.length - 1;
-        while (start <= end) {
+        while (start < end) {
             int mid = start + (end - start) / 2;
             if (arr[mid] > arr[mid + 1]) {
                 // we are in the decreasing part of the array.
-                end = mid - 1;
+                // we may have found the answer, but we are not sure if that the correct answer.
+                end = mid;
             } else {
                 // we are in the increasing part of the array.
+                // we know that mid > mid + 1, so thats why we are incrementing the array but one.
                 start = mid + 1;
             }
-
         }
+        // returning start, as our start element will be on the peek.
         return start;
     }
 }
