@@ -6,14 +6,14 @@ public class LeetCode33 {
 //        int[] nums = {0};
         int[] nums = {4, 5, 6, 0, 1, 2, 3};
 //        int[] nums = {5, 1, 3};
-        int target = 6;
-        int peek = findPivot(nums);
-        System.out.println(nums[peek]);
-        int ans = findElement(nums, target, 0, peek);
+        int target = 10;
+        int pivot = findPivot(nums);
+        System.out.println("The pivot is: "+nums[pivot]);
+        int ans = findElement(nums, target, 0, pivot);
         if (ans == -1) {
-            ans = findElement(nums, target, peek + 1, nums.length - 1);
+            ans = findElement(nums, target, pivot + 1, nums.length - 1);
         }
-        System.out.println(ans);
+        System.out.println("The 1st approach gives: " + ans);
     }
 
     public static int findPivot(int[] nums) {
