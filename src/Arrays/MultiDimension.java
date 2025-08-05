@@ -1,18 +1,27 @@
 package Arrays;
 
-import java.util.Arrays;
+import java.util.Scanner;
 
 public class MultiDimension {
     public static void main(String[] args) {
-        int[][] arr = new int[2][2];
-        arr[0] = new int[]{1, 2};
-        arr[1] = new int[]{3, 4};
-        System.out.println(Arrays.toString(arr[0]));
-
-        int[][] arr2 = {
-                {1, 2, 4},
-                {2, 3},
-                {3, 4, 9, 6, 7}
-        };
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter rows for the Array: ");
+        int rows = sc.nextInt();
+        System.out.println("Enter columns for the Array: ");
+        int columns = sc.nextInt();
+        int[][] matrix = new int[rows][columns];
+        for (int r = 0; r < matrix.length; r++) {
+            for (int c = 0; c < matrix[0].length; c++) {
+                System.out.printf("Enter [%d][%d] matrix value: ", r, c);
+                matrix[r][c] = sc.nextInt();
+            }
+        }
+        sc.close();
+        for (int r = 0; r < matrix.length; r++) {
+            for (int c = 0; c < matrix[0].length; c++) {
+                System.out.printf("Matrix: " + matrix[r][c]);
+            }
+            System.out.println();
+        }
     }
 }
